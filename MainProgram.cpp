@@ -166,10 +166,10 @@ void bSearchTreeType<T>::preorder(nodeType<T>* p) const {
     // TODO:
     // If p is null return
     // Print root, visit left, visit right
-    if(p == nullptr) return;
+    if (p == nullptr) return;
     cout << p->info << " ";
-    inorder(p->llink);
-    inorder(p->rlink);
+    preorder(p->llink);
+    preorder(p->rlink);
 }
 
 template <class T>
@@ -177,10 +177,10 @@ void bSearchTreeType<T>::postorder(nodeType<T>* p) const {
     // TODO:
     // If p is null return
     // Visit left, visit right, print root
-    if(p == nullptr) return;
-    inorder(p->rlink);
+    if (p == nullptr) return;
+    postorder(p->llink);
+    postorder(p->rlink);
     cout << p->info << " ";
-    inorder(p->llink);
 
 }
 
