@@ -115,9 +115,6 @@ void bSearchTreeType<T>::insert(nodeType<T>*& p, const T& item) {
     // Otherwise, recurse left or right based on BST rules.
     if(p == nullptr){
         p = new nodeType<T>(item);
-        p->info = item;
-        p->llink = nullptr;
-        p->rlink = nullptr;
         return;
     }
     if(item < p->info){
@@ -227,10 +224,7 @@ int bSearchTreeType<T>::nodeCount(nodeType<T>* p) const {
     if(p == nullptr) return 0;
     int c1 = nodeCount(p->llink); 
     int c2 = nodeCount(p->rlink); 
-    if(c1 >= c2) return(1 + c1);
-    else return(1 + c2);
-
-    return 0;
+    return (c1 + c2 + 1);
 }
 
 /************************************************************
@@ -253,8 +247,7 @@ int bSearchTreeType<T>::leavesCount(nodeType<T>* p) const {
     else{
         int l1 = leavesCount(p->llink); 
         int l2 = leavesCount(p->rlink); 
-        if(l1 >= l2) return(1 + l1);
-        else return(1 + l2);
+        return (l1 + l2);
     }
 }
 
